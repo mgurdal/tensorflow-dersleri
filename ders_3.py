@@ -22,7 +22,7 @@ def add_layer(inputs, in_size, out_size, activation_func=None):
 X = np.linspace(-1, 1, 300)[:, np.newaxis] # add 1D to sample
 noise = np.random.normal(0, 0.05, X.shape).astype(np.float32) # add some noise so it's looks real
 # y = x^2
-Y = np.square(X) - 0.5 #+ noise
+Y = np.square(X) - 0.5 + noise
 
 # plot the data
 #plt.scatter(X, Y)
@@ -71,4 +71,4 @@ for i in range(1000):
         prediction_value = sess.run(prediction, feed_dict={xs:X})    
         # plot
         lines = ax.plot(X, prediction_value, 'r', lw=5)
-        plt.pause(0.01)
+        plt.pause(1)
